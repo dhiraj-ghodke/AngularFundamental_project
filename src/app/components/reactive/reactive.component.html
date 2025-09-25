@@ -1,0 +1,55 @@
+
+<h2>Reactive Form</h2>
+
+<form [formGroup]="myForm" (ngSubmit)="formSubmit()">
+    <div>
+        <label>First Name</label>
+        <input type="text" formControlName="firstName"/>
+        <span class="text-danger" *ngIf="myForm.controls['firstName'].touched &&
+        myForm.controls['firstName'].errors?.['required']">Please enter first name</span>
+
+          <span class="text-danger" *ngIf="myForm.controls['firstName'].touched &&
+        myForm.controls['firstName'].errors?.['minlength']">first name should be 2 charecters long</span>
+    </div>
+    <br/>
+     <div>
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName"/>
+    </div>
+    <br/>
+     <div>
+        <label>Email</label>
+        <input type="text" formControlName="email"/>
+          <span class="text-danger" *ngIf="myForm.controls['email'].touched &&
+        myForm.controls['email'].errors?.['required']">Please enter email</span>
+
+          <span class="text-danger" *ngIf="myForm.controls['email'].touched &&
+        myForm.controls['email'].errors?.['pattern']">Invalid Email</span>
+    </div>
+    <br/>
+    <div formGroupName="address">
+        <h3>Address</h3>
+        <div>
+            <label>Landmark</label>
+            <input type="text" formControlName="landmark"/>
+        </div>
+        <br/>
+        <div>
+            <label>Village</label>
+            <input type="text" formControlName="village"/>
+        </div>
+        <br/>
+    </div>
+     <div>
+        <!-- <input type="submit" value="Save" [disabled]="myForm.touched && myForm.invalid"/> -->
+          <input type="submit" value="Save"/> |
+          <input type="button" value="Clear" (click)=" clearForm()"/> |
+          <input type="button" value="Load Values" (click)="initialValueOnLoad()"/>
+
+    </div>
+    <br/>
+</form>
+
+<div>
+    {{myForm.value | json}}
+</div>

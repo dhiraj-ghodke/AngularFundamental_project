@@ -1,0 +1,26 @@
+
+<div>
+<h1>Parent Component</h1>
+<p>parent data : {{ parentData }}</p>
+<app-child [parent]="parentData" (sendData)="recieveData($event)" #child></app-child>
+
+<p>child data : {{child}}</p>
+<hr/>
+
+Color : <input type="text" [(ngModel)]="bgColor"/>
+
+<p>Background Color To Set : {{bgColor}}</p>
+
+<h2 #heading>Heading 2 Tag</h2>
+
+<p #para>First Paragraph</p>
+
+<p #para>Second Paragraph</p>
+
+<p>child data using ViewChild : {{childDataUsingViewChild}}</p>
+
+<input type="button" value="Increment" (click)="inc()"/>
+
+<input type="button" value="Decrement" (click)="dec()"/>
+
+</div>

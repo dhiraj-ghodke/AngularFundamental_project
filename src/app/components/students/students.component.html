@@ -1,0 +1,14 @@
+
+
+<!-- <h2>Batch 25</h2> -->
+
+<div class="col-6">
+<ng-content select=".header"></ng-content>
+<ul class="list-group">
+    <li *ngFor="let stud of students" class="list-group-item">
+        {{stud.name}} 
+        <span class="badge bg-primary float-end">{{stud.mobile}}</span> 
+    </li>
+</ul>
+<ng-content select=".footer"></ng-content>
+</div>

@@ -1,0 +1,56 @@
+
+<!-- <input type="text" [(ngModel)]="title"/> -->
+
+<!-- <h3>{{title}}</h3> -->
+
+<!-- <input type="button" value="{{title}}"/> -->
+
+<!-- <input type="button" [value]="title"/> -->
+
+<!-- <p [style.backgroundColor]="bgColor"
+[style.color]="color">homea Paragraph</p> -->
+
+<!-- <p [ngStyle]="styling">homea Paragraph</p> -->
+
+<!-- <p class="firstClass secondClass">ngClass Directive</p> -->
+
+<!-- <p [ngClass]="classes">ngClass Directive</p>
+
+<app-homeb></app-homeb>
+ -->
+
+ <h2>Home A Component</h2>
+
+ <button class="btn btn-success" (click)="navigateToHomeB()">Visit HomeB Page</button>
+
+ <h3>ngIf directive</h3>
+
+ <p *ngIf="isVisible">First Sentence</p>
+
+ <p *ngIf="color=='red'">Second Sentence</p>
+
+ <h3 *ngIf="color=='red';else opposite">Color is White</h3>
+
+ <ng-template #opposite>
+    <h3>Color is not White</h3>
+ </ng-template>
+
+ <div [ngSwitch]="color">
+    <p *ngSwitchCase="'red'">Symbol of LOVE</p>
+    <p *ngSwitchCase="'white'">Shantatiche Pratik</p>
+    <p *ngSwitchCase="'green'">Nisarg</p>
+    <p *ngSwitchDefault>No sign for this color</p>
+ </div>
+
+ <div *ngIf="names.length > 0; else nostudent">
+ <h3>All Students</h3>
+ <ol>
+    <li *ngFor="let name of names">
+    {{ name }}
+    </li>
+ </ol>
+ </div>
+
+ <ng-template #nostudent>
+ <h3>No Student Found</h3>
+ </ng-template>

@@ -1,0 +1,22 @@
+
+<h1>All Students</h1>
+
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Roll Number</th> <th>Name</th> <th>City</th> <th>Batch</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of students">
+                <td>{{s.rollNumber}}</td>
+                <td>
+                    <a [routerLink]="['/student', s.rollNumber]">{{s.name}}</a>
+                </td>
+                <td>{{s.city}}</td>
+                <td>{{s.batch}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

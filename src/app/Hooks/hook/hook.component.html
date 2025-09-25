@@ -1,0 +1,13 @@
+<p>hook works!</p>
+
+Color Value : <input type="text" [(ngModel)]="color"/>
+
+<p>product details</p>
+
+name : <input type="text" [(ngModel)]="product.name"/> <br/>
+price : <input type="text" [(ngModel)]="product.price"/> <br/>
+
+<br/>
+<app-child-hook [parentColor]="color" [productData]="product">
+    <h3 #head1>Parent Projected Heading</h3>
+</app-child-hook>

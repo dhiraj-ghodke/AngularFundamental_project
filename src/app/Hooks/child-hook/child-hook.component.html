@@ -1,0 +1,20 @@
+<div>
+    <p>child-hook works!</p>
+    <p>parent color : {{parentColor}}</p>
+
+    
+<p>product details</p>
+
+name : <input type="text" [(ngModel)]="productData.name"/> <br/>
+price : <input type="text" [(ngModel)]="productData.price"/> <br/>
+
+    <p>All Messages</p>
+    <ul>
+        <li *ngFor="let msg of allMessage">
+            {{msg}}
+        </li>
+    </ul>
+    <ng-content></ng-content>
+
+    <h3 #head2>Child Hook Heading</h3>
+</div>

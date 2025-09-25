@@ -1,0 +1,72 @@
+
+<h3>Template Driven Form Demo</h3>
+
+<form #myForm="ngForm" (ngSubmit)="saveForm(myForm)">
+    <div>
+        <label>First Name</label>
+        <input type="text" name="firstName" ngModel required minlength="2"/>
+        <span class="text-danger" *ngIf="myForm.controls['firstName'].touched && 
+        myForm.controls['firstName'].errors?.['required']">Please enter first name</span>
+
+        
+        <span class="text-danger" *ngIf="myForm.controls['firstName'].touched && 
+        myForm.controls['firstName'].errors?.['minlength']">First name should be more than 2 charecters</span>
+
+    </div>
+    <br/>
+    
+    <div>
+        <label>Last Name</label>
+        <input type="text" name="lastName" ngModel required maxlength="6"/>
+        <span class="text-danger" *ngIf="myForm.controls['lastName'].touched && 
+        myForm.controls['lastName'].errors?.['required']">Please enter last name</span>
+
+        <span class="text-danger" *ngIf="myForm.controls['lastName'].touched && 
+        myForm.controls['lastName'].errors?.['maxlength']">Last name cannot be more than 6 charecters</span>
+    </div>
+    <br/>
+    
+    <div>
+        <label>Email</label>
+        <input type="text" name="email" ngModel required pattern="^[a-zA-Z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,4}$"/>
+        <span class="text-danger" *ngIf="myForm.controls['email'].touched && 
+        myForm.controls['email'].errors?.['required']">Please enter email</span>
+
+         <span class="text-danger" *ngIf="myForm.controls['email'].touched && 
+        myForm.controls['email'].errors?.['pattern']">Invalid email</span>
+    </div>
+    <br/>
+    <div class="mx-5" ngModelGroup="address">
+        <h4>Address</h4>
+    <div>
+        <label>Line No 1</label>
+        <input type="text" name="LineNumber" ngModel required/>
+    </div>
+    <br/>
+     <div>
+        <label>Street</label>
+        <input type="text" name="street" ngModel required/>
+    </div>
+    <br/>
+     <div>
+        <label>Village</label>
+        <input type="text" name="village" ngModel required/>
+    </div>
+    </div>
+    <br/>
+    <div>
+        <input type="submit" value="Save" [disabled]="(myForm.untouched || myForm.touched) && myForm.invalid"/>
+    </div>
+</form>
+<br/>
+
+<div>{{myForm.value | json}}</div>
+<br/>
+
+<div>Is Form Valid : {{myForm.valid}}</div>
+
+<div>Is Form InValid : {{myForm.invalid}}</div>
+
+<!-- <div>{{myForm.controls['firstName'].errors}}</div> -->
+
+<div>village name : {{myForm.value.address.village}}</div>

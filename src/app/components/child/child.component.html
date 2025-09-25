@@ -1,0 +1,14 @@
+
+<div>
+    <h3>Child Component</h3>
+
+    <p>counter value : {{counter}}</p>
+
+    <p>Data from parent : {{parent}}</p>
+
+    <p>my child data : {{childData}}</p>
+
+    Child Data : <input type="text" [(ngModel)]="childData" (keyup)="sendDataTurant()"/>
+
+    <input type="button" value="Send Data" (click)="sendDataToParent()"/>
+</div>
